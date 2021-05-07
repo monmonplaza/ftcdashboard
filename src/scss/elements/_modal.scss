@@ -1,0 +1,81 @@
+.modal {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  display: none;
+  &__box {
+    width: 37rem;
+    max-width: 37rem;
+    background-color: #fff;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  &__box__header {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    background-color: $blue;
+    color: $light;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      padding-left: 1rem;
+      letter-spacing: 1px;
+    }
+    svg {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  &__box__body {
+    padding: 2rem 2rem 1rem;
+    max-height: 50rem;
+  }
+
+  &__box__footer {
+    padding: 1rem 2rem 2rem;
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      li {
+        margin-left: 1rem;
+        button {
+          min-width: 9rem;
+          display: block;
+
+          padding: 0.8rem 1.4rem;
+        }
+      }
+    }
+
+    .btn__cancel {
+      background-color: $dark;
+      color: $light;
+      &:hover {
+        background-color: $dark-1;
+      }
+    }
+    .btn__process {
+      background-color: $blue;
+      color: $light;
+      &:hover {
+        background-color: $blue-1;
+      }
+    }
+  }
+}
+
+.modal.show {
+  display: flex;
+}

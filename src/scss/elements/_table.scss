@@ -1,0 +1,148 @@
+.table__content {
+  display: none;
+
+  table {
+    display: block;
+    thead,
+    tbody {
+      width: 100%;
+      display: block;
+    }
+    thead tr,
+    tbody tr {
+      display: flex;
+      width: inherit;
+      justify-content: space-between;
+    }
+
+    td {
+      flex: 1;
+      align-self: center;
+    }
+
+    thead {
+      border-bottom: 1px solid $gray-1;
+      padding: 1rem 0;
+      margin-bottom: 1rem;
+      td {
+        font-weight: bold;
+      }
+    }
+    tbody {
+      td {
+        padding: 0.5rem 0;
+      }
+      tr:nth-child(even) {
+        background-color: $light-1;
+      }
+    }
+  }
+}
+
+.table__content.active {
+  display: block;
+}
+
+// TABLE NAVIGATION
+.table__nav {
+  margin-bottom: 2rem;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $gray-1;
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+  &__listitem {
+    margin-right: 4rem;
+    font-size: 1.4rem;
+  }
+  &__btn {
+    padding: 2rem 1rem;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #4d4d4d;
+    position: relative;
+    outline: none;
+    border: none;
+    background-color: transparent;
+  }
+
+  .action__btn {
+    align-self: center;
+    color: $blue;
+    font-weight: bold;
+    font-size: 1.4rem;
+    @include transition;
+    &:hover {
+      color: $blue-1;
+    }
+  }
+}
+
+.table__nav__btn.active {
+  color: $blue;
+}
+
+// TABLE OPTION ACTION
+.table__option {
+  position: relative;
+
+  &__btn {
+    display: flex;
+    padding: 1.2rem 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: transparent;
+
+    span {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      display: block;
+      background-color: $gray;
+      margin: 0 0.2rem;
+      @include transition;
+    }
+
+    &:hover {
+      border: 1px solid $gray-1;
+    }
+    &:hover span {
+      background-color: $dark;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    left: -8rem;
+    bottom: -12rem;
+    min-width: 12rem;
+    border: 1px solid $gray-1;
+    background-color: $light-1;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    li {
+      border-bottom: 1px solid $gray-1;
+      button {
+        padding: 1rem;
+        color: $dark;
+        width: 100%;
+        font-size: 1.4rem;
+        text-align: left;
+        &:hover {
+          background-color: $gray-1;
+        }
+      }
+    }
+  }
+}
+
+.table__option__list.active {
+  display: block;
+}

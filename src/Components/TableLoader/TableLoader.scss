@@ -1,0 +1,28 @@
+$n: 8; // segments count
+$speed: 1000ms;
+$size: 40px;
+.preloader {
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  animation: loader $speed step-end infinite;
+  width: $size;
+  height: $size;
+  transform: rotate(0deg);
+
+  path {
+    fill: $blue;
+  }
+}
+
+@keyframes loader {
+  @for $i from 1 through $n {
+    #{$i * (100 / $n) * 1%} {
+      transform: rotate((360deg / $n) * $i);
+    }
+  }
+}

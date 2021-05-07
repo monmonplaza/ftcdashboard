@@ -1,0 +1,60 @@
+
+
+  // spinner state
+  const [isLoading, setIsloading] = useState(true);
+
+  useEffect(() => {
+    let URL =
+      "https://demo.frontlinebusiness.com.ph/dev/ftc2021/ftc/rest/server/stripe/products/list-products.php";
+
+    async function fetchChildResident() {
+      let response = await fetch(URL);
+      let children = await response.json();
+
+      setChildListResident(children);
+      setIsloading(false);
+    }
+
+    fetchChildResident();
+  }, []);
+
+  
+
+
+  <tbody>
+    {isLoading ? (
+        <tr>
+        <TableLoader />
+        </tr>
+    ) : (
+        childListResident.data &&
+        childListResident.data.map((child) => {
+        return (
+            <tr key={child.id}>
+            <td>{child.name}</td>
+            <td>{child.metadata.birthday}</td>
+            <td>{child.metadata.class}</td>
+            <td>1-20-2021</td>
+            <td className="table__option">
+                <button className="table__option__btn">
+                <span></span>
+                <span></span>
+                <span></span>
+                </button>
+                <ul className="table__option__list">
+                <li>
+                    <button>View</button>
+                </li>
+                <li>
+                    <button>Edit</button>
+                </li>
+                <li>
+                    <button>Delete</button>
+                </li>
+                </ul>
+            </td>
+            </tr>
+        );
+        })
+    )}
+    </tbody>

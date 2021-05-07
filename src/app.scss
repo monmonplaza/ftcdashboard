@@ -1,0 +1,18 @@
+@import "./scss/variable";
+@import "./scss/reset";
+@import "./scss/mixins";
+@import "./scss/base";
+
+//Components
+@import "./Components/Header/header";
+@import "./Components/SideMenu/sidemenu";
+@import "./Components/ManageChildren/manageChild";
+@import "./Components/TableLoader/TableLoader";
+@import "./Components/Spinner/Spinner";
+
+//Pages
+
+// Elements
+@import "./scss/elements/table";
+@import "./scss/elements/modal";
+@import "./scss/elements/form";

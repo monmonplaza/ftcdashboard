@@ -1,0 +1,32 @@
+.sidebar {
+  &__wrapper {
+    margin-top: 3rem;
+    padding: 0rem 0 6rem 2rem;
+    height: 100vh;
+    border-right: 1px solid $gray-1;
+  }
+  ul {
+    list-style: none;
+    li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      line-height: 1;
+      a {
+        color: $dark;
+        padding: 1rem;
+        width: 100%;
+        font-size: 1.4rem;
+        svg {
+          width: 1.5rem;
+          height: 1.5rem;
+          margin-right: 1rem;
+          align-self: center;
+        }
+        &:hover {
+          background-color: $light-1;
+        }
+      }
+    }
+  }
+}

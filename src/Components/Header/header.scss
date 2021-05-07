@@ -1,0 +1,19 @@
+.header {
+  background-color: $blue;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    img {
+      width: 30rem;
+    }
+    a {
+      color: $light;
+      @include transition;
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+}

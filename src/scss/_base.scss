@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "lato_bold";
+  src: url("../fonts/lato-bold-webfont.woff") format("woff2"),
+    url("../fonts/lato-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "lato_regular";
+  src: url("../fonts/lato-regular-webfont.woff2") format("woff2"),
+    url("../fonts/lato-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "lato_black";
+  src: url("../fonts/lato-black-webfont.woff2") format("woff2"),
+    url("../fonts/lato-black-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "lato_light";
+  src: url("../fonts/lato-light-webfont.woff2") format("woff2"),
+    url("../fonts/lato-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  color: $dark;
+  line-height: 1.2;
+  font-family: "lato_regular", sans-serif;
+}
+
+button {
+  cursor: pointer;
+  transition: 0.5s ease;
+  border: none;
+  background-color: transparent;
+}
+
+.main__grid {
+  display: grid;
+  grid-template-columns: 23rem 1fr;
+}

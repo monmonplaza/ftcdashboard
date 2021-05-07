@@ -1,0 +1,35 @@
+.modal__form {
+  &__group {
+    margin-bottom: 1rem;
+    position: relative;
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+    }
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 0.3rem;
+      border: 1px solid $gray;
+      outline: none;
+      &:focus {
+        border: 1px solid $blue-1;
+      }
+    }
+    .error__msg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 1.4rem;
+      color: $red;
+    }
+
+    textarea {
+      height: 20rem;
+      overflow-y: scroll;
+    }
+  }
+}
