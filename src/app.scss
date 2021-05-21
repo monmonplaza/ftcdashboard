@@ -2,13 +2,14 @@
 @import "./scss/reset";
 @import "./scss/mixins";
 @import "./scss/base";
+@import "./scss/icons";
 
 //Components
 @import "./Components/Header/header";
 @import "./Components/SideMenu/sidemenu";
-@import "./Components/ManageChildren/manageChild";
 @import "./Components/TableLoader/TableLoader";
-@import "./Components/Spinner/Spinner";
+@import "./Components/ManageOverview/ManageOverview";
+@import "./Components/ManageDonors/DonorInfo/donor";
 
 //Pages
 
@@ -16,3 +17,4 @@
 @import "./scss/elements/table";
 @import "./scss/elements/modal";
 @import "./scss/elements/form";
+// @import "./scss/elements/icons";

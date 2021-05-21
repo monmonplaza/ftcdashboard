@@ -7,6 +7,19 @@ const NonResident = ({ action }) => {
     "https://demo.frontlinebusiness.com.ph/dev/ftc2021/ftc/rest/server/stripe/products/list-products.php"
   );
 
+  const { isAction, setIsAction } = action;
+
+  const [id, setId] = React.useState(null);
+
+  const [toggleOption, setToggleOption] = React.useState(-1);
+
+  const handleToggleOption = (id) => {
+    // setToggleOption(index);
+    console.log(id);
+    setIsAction(!isAction);
+    setId(id);
+  };
+
   return (
     <table>
       <thead>
@@ -21,7 +34,7 @@ const NonResident = ({ action }) => {
       {loading && <TableLoader />}
       {Object.keys(list).length > 0 ? (
         <tbody>
-          {list.data.map((item) => {
+          {list.data.map((item, index) => {
             if (item.metadata.class === "non-resident") {
               return (
                 <tr key={item.id}>
@@ -29,25 +42,35 @@ const NonResident = ({ action }) => {
                   <td>{item.metadata.birthday}</td>
                   <td>{item.metadata.class}</td>
                   <td>1-20-2021</td>
-                  <td>
-                    <div className="table__option">
-                      <div className="table__option__btn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-                      <ul className="table__option__list">
+                  <td className="table__option">
+                    <button
+                      className="table__option__btn"
+                      onClick={() => handleToggleOption(item.id)}
+                    >
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </button>
+
+                    <ul
+                      className={
+                        id === item.id
+                          ? "table__option__list active"
+                          : "table__option__list"
+                      }
+                    >
+                      <>
                         <li>
-                          <button>View Donor</button>
+                          <button>View</button>
                         </li>
                         <li>
-                          <button>Edit Child</button>
+                          <button>Edit</button>
                         </li>
                         <li>
-                          <button>Delete Child?</button>
+                          <button>Delete</button>
                         </li>
-                      </ul>
-                    </div>
+                      </>
+                    </ul>
                   </td>
                 </tr>
               );
@@ -56,14 +79,9 @@ const NonResident = ({ action }) => {
           })}
         </tbody>
       ) : (
-        <tbody className="no__data">
+        <tbody>
           <tr>
-            <td>
-              <div className="no__data__wrapper">
-                <i className="fal fa-exclamation-triangle"></i>
-                <h3>No Data Available</h3>
-              </div>
-            </td>
+            <td>no data</td>
           </tr>
         </tbody>
       )}

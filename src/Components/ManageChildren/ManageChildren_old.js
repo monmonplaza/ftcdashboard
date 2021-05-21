@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AddChildModal from "./Modals/addChildModal";
+import AddChildModal from "./Modals/AddChildModal";
 import NonResident from "./NonResident";
 import Resident from "./Resident";
 

@@ -1,0 +1,40 @@
+.donor {
+  &__block {
+    max-width: 50rem;
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid $gray-1;
+      margin-bottom: 2rem;
+      h2 {
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 1.6rem;
+        color: $gray;
+      }
+      button {
+        cursor: pointer;
+        font-size: 1.4rem;
+        color: $blue;
+        font-weight: bold;
+        transition: 0.5s ease;
+        &:hover {
+          color: $blue-1;
+        }
+      }
+    }
+
+    &__body {
+      .info__block {
+        margin-bottom: 2rem;
+        h3 {
+          margin-bottom: 0.5rem;
+        }
+        p {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}

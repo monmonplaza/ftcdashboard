@@ -1,8 +1,9 @@
 import React from "react";
 import useFetchData from "../custom-hooks/useFetchData";
 import TableLoader from "../TableLoader/TableLoader";
+import { Link } from "react-router-dom";
 
-const NonResident = ({ action }) => {
+const ActiveDonors = () => {
   const { list, loading } = useFetchData(
     "https://demo.frontlinebusiness.com.ph/dev/ftc2021/ftc/rest/server/stripe/products/list-products.php"
   );
@@ -21,8 +22,8 @@ const NonResident = ({ action }) => {
       {loading && <TableLoader />}
       {Object.keys(list).length > 0 ? (
         <tbody>
-          {list.data.map((item) => {
-            if (item.metadata.class === "non-resident") {
+          {list.data.map((item, index) => {
+            if (item.metadata.class === "resident") {
               return (
                 <tr key={item.id}>
                   <td>{item.name}</td>
@@ -38,13 +39,16 @@ const NonResident = ({ action }) => {
                       </div>
                       <ul className="table__option__list">
                         <li>
-                          <button>View Donor</button>
+                          <Link to={"/donor-details"}>View Profile </Link>
                         </li>
                         <li>
-                          <button>Edit Child</button>
+                          <button>Manual Donation</button>
                         </li>
                         <li>
-                          <button>Delete Child?</button>
+                          <button>Change Password</button>
+                        </li>
+                        <li>
+                          <button>Archive Donor</button>
                         </li>
                       </ul>
                     </div>
@@ -71,4 +75,4 @@ const NonResident = ({ action }) => {
   );
 };
 
-export default NonResident;
+export default ActiveDonors;

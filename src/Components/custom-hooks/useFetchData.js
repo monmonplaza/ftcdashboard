@@ -5,16 +5,16 @@ const useFetchData = (url) => {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    fetchChild();
+    fetchList();
   }, []);
 
-  const fetchChild = async () => {
+  const fetchList = async () => {
     // setLoading(true);
 
     const response = await fetch(url);
-    const children = await response.json();
+    const list = await response.json();
 
-    setList(children);
+    setList(list);
     setLoading(false);
   };
 

@@ -1,17 +1,24 @@
 import React from "react";
 import NonResident from "./NonResident";
-
 import Resident from "./Resident";
+import AddChildModal from "./Modals/AddChildModal";
 
 const ManageChildrenMain = ({ title }) => {
   const [isResident, setIsResident] = React.useState(true);
   const [isNonResident, setIsNonResident] = React.useState(false);
+  const [addChild, setAddChild] = React.useState(false);
+  const [isAction, setIsAction] = React.useState(false);
 
   const handleNonResident = () => {
     console.log("non-resident");
     setIsResident(false);
     setIsNonResident(true);
   };
+
+  const handleAddModal = () => {
+    setAddChild(true);
+  };
+
   return (
     <>
       <main>
@@ -46,7 +53,9 @@ const ManageChildrenMain = ({ title }) => {
                   </button>
                 </li>
               </ul>
-              <button className="action__btn">+Add New Child</button>
+              <button className="action__btn" onClick={handleAddModal}>
+                +Add New Child
+              </button>
             </div>
           </div>
 
@@ -54,12 +63,16 @@ const ManageChildrenMain = ({ title }) => {
             <div className="table__content__item">
               <div className="table__content__responsive">
                 {isResident && <Resident />}
-                {isNonResident && <NonResident />}
+                {isNonResident && (
+                  <NonResident action={{ isAction, setIsAction }} />
+                )}
               </div>
             </div>
           </div>
         </div>
       </main>
+
+      <AddChildModal addChild={addChild} />
     </>
   );
 };

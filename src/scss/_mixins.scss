@@ -7,3 +7,12 @@
 @mixin transition {
   transition: 0.2s ease;
 }
+
+@mixin tablelink($color, $level: 10) {
+  color: $color;
+  transition: 0.5s ease;
+  font-weight: bolder;
+  &:hover {
+    color: darken($color, $level);
+  }
+}

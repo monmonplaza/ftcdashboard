@@ -54,3 +54,11 @@ button {
   display: grid;
   grid-template-columns: 23rem 1fr;
 }
+
+.main__wrapper {
+  padding: 3rem 2rem;
+
+  h2 {
+    margin-bottom: 3rem;
+  }
+}

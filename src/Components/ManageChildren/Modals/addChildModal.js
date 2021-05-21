@@ -1,9 +1,8 @@
 import React from "react";
 import { BsPersonPlusFill } from "react-icons/bs";
-import Spinner from "../../Spinner/Spinner";
-const addChildModal = ({ isAddChild }) => {
+const AddChildModal = ({ addChild }) => {
   return (
-    <div className={isAddChild ? "modal show" : "modal"}>
+    <div className={addChild ? "modal show" : "modal"}>
       <div className="modal__box">
         <form action="" className="modal__form">
           <div className="modal__box__header">
@@ -47,13 +46,13 @@ const addChildModal = ({ isAddChild }) => {
           <div className="modal__box__footer">
             <ul>
               <li>
-                <button className="btn__cancel" onClick={() => !isAddChild}>
+                <button className="btn__cancel" onClick={() => !addChild}>
                   Cancel
                 </button>
               </li>
               <li>
                 <button className="btn__process">
-                  Add <Spinner />
+                  Add <i className="fa fa-spin"></i>
                 </button>
               </li>
             </ul>
@@ -64,4 +63,4 @@ const addChildModal = ({ isAddChild }) => {
   );
 };
 
-export default addChildModal;
+export default AddChildModal;

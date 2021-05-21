@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { VscHome, VscAccount, VscPerson } from "react-icons/vsc";
-import { BsGift } from "react-icons/bs";
+import { MenuData } from "../DataJSON/MenuData";
+
 const index = () => {
   return (
     <>
@@ -10,41 +10,20 @@ const index = () => {
           <ul>
             <li>
               <Link to="/">
-                <VscHome />
+                <i className="fal fa-home"></i>
                 <span> Overview</span>
               </Link>
             </li>
-            <li>
-              <Link to="/">
-                <VscAccount /> <span>Users</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                <VscPerson />
-                <span> Children</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                <BsGift />
-                <span> Donors</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                {" "}
-                <BsGift />
-                <span>Donation Designation</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                {" "}
-                <BsGift />
-                Manual Donations
-              </Link>
-            </li>
+            {MenuData.map((menu) => {
+              return (
+                <li key={menu.id}>
+                  <Link to={menu.path}>
+                    <i className={menu.icon}></i>
+                    <span> {menu.title}</span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </aside>

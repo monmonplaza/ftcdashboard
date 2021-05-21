@@ -2,33 +2,33 @@ import React from "react";
 import useFetchData from "../custom-hooks/useFetchData";
 import TableLoader from "../TableLoader/TableLoader";
 
-const NonResident = ({ action }) => {
+const InactiveUser = ({ action }) => {
   const { list, loading } = useFetchData(
-    "https://demo.frontlinebusiness.com.ph/dev/ftc2021/ftc/rest/server/stripe/products/list-products.php"
+    "https://demo.frontlinebusiness.com.ph/dev/ftc2021/ftc/rest/admin/read-users.php"
   );
+  const [countData, setCountData] = React.useState(0);
 
   return (
     <table>
       <thead>
         <tr>
+          <td>Email</td>
           <td>Name</td>
-          <td>Birthday</td>
-          <td>Classification</td>
-          <td>Create</td>
+          <td>Status</td>
           <td>Action</td>
         </tr>
       </thead>
       {loading && <TableLoader />}
       {Object.keys(list).length > 0 ? (
         <tbody>
-          {list.data.map((item) => {
-            if (item.metadata.class === "non-resident") {
+          {/* {console.log(list.data.length)} */}
+          {list.data.map((item, index) => {
+            if (item.users_active !== "1") {
               return (
                 <tr key={item.id}>
-                  <td>{item.name}</td>
-                  <td>{item.metadata.birthday}</td>
-                  <td>{item.metadata.class}</td>
-                  <td>1-20-2021</td>
+                  <td>{item.users_email}</td>
+                  <td>{item.users_name}</td>
+                  <td>Active</td>
                   <td>
                     <div className="table__option">
                       <div className="table__option__btn">
@@ -71,4 +71,4 @@ const NonResident = ({ action }) => {
   );
 };
 
-export default NonResident;
+export default InactiveUser;
