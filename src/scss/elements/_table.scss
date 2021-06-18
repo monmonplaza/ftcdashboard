@@ -2,27 +2,34 @@
   display: none;
 
   table {
-    display: block;
+    // display: block;
     position: relative;
-    thead,
-    tbody {
-      width: 100%;
-      display: block;
+    border-collapse: collapse;
+    border-spacing: 0;
+    white-space: nowrap;
+    width: 100%;
+    table-layout: fixed;
+    @include media_query($sm-break) {
+      width: 150%;
     }
-    thead tr,
-    tbody tr {
-      display: flex;
-      width: inherit;
-    }
+    // thead,
+    // tbody {
+    //   display: block;
+    // }
+    // thead tr,
+    // tbody tr {
+    //   display: table;
+    // }
 
-    td {
-      flex: 1;
-      align-self: center;
-    }
+    // td {
+    //   flex: 1;
+    //   align-self: center;
+    //   white-space: nowrap;
+    // }
 
-    td:last-child {
-      width: 5rem;
-    }
+    // td:last-child {
+    //   width: 5rem;
+    // }
 
     thead {
       border-bottom: 1px solid $gray-1;
@@ -30,16 +37,34 @@
       margin-bottom: 1rem;
       td {
         font-weight: bold;
+        padding: 0.8rem;
       }
     }
     tbody {
+      tr:nth-child(even):hover,
+      tr:hover {
+        background-color: $light-2;
+      }
       td {
-        padding: 0.5rem 0;
+        padding: 0.8rem;
+        margin-bottom: 0.5rem;
+      }
+      td.active__cell span {
+        background-color: $green;
+        color: $light;
+        padding: 0.3rem 1rem;
+        font-size: 1.4rem;
+        border-radius: 0.5rem;
       }
       tr:nth-child(even) {
         background-color: $light-1;
       }
     }
+  }
+
+  &__responsive {
+    overflow-x: auto;
+    min-height: 85vh;
   }
 }
 
@@ -49,7 +74,6 @@
 
 // TABLE NAVIGATION
 .table__nav {
-  margin-bottom: 2rem;
   &__wrapper {
     display: flex;
     justify-content: space-between;
@@ -172,6 +196,11 @@
 
 .no__data {
   tr {
+    border: none;
+    height: 50vh;
+    &:hover {
+      background-color: transparent !important;
+    }
     td {
       position: absolute;
       width: 100% !important;
@@ -181,6 +210,7 @@
       justify-content: center;
       align-items: center;
       opacity: 0.5;
+      border: none;
     }
 
     i {

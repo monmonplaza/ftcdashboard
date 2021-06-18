@@ -1,33 +1,31 @@
 import React from "react";
+
 import useFetchData from "../custom-hooks/useFetchData";
 import TableLoader from "../TableLoader/TableLoader";
-import DeleteChildModal from "./Modals/DeleteChildModal";
-import EditChildModal from "./Modals/EditChildModal";
-import ViewDonorModal from "./Modals/ViewDonorModal";
+import Active from "./Modal/Active";
 
-const Resident = () => {
+const DonationDesignationArchive = () => {
   const { list, loading } = useFetchData(
     "https://demo.frontlinebusiness.com.ph/dev/ftc2021/ftc/rest/server/stripe/products/list-products.php"
   );
 
-  const [isDeleteChild, setIsDeleteChild] = React.useState(false);
-  const [isEditChild, setIsEditChild] = React.useState(false);
-  const [isViewDonor, setIsViewDonor] = React.useState(false);
+  const [isActive, setIsActive] = React.useState(false);
 
-  const handleDeleteChildModal = () => setIsDeleteChild(true);
-  const handleEditChildModal = () => setIsEditChild(true);
-  const handleViewDonorModal = () => setIsViewDonor(true);
-
+  const handleIsActive = () => {
+    setIsActive(!isActive);
+  };
   return (
     <>
       {loading && <TableLoader />}
       <table>
         <thead>
           <tr>
-            <td>Name</td>
-            <td>Birthday</td>
-            <td>Classification</td>
-            <td>Create</td>
+            <td>Child Name</td>
+            <td>Donor</td>
+            <td>Amount</td>
+            <td>Status</td>
+            <td>Start Date</td>
+            <td>End Date</td>
             <td>Action</td>
           </tr>
         </thead>
@@ -42,6 +40,8 @@ const Resident = () => {
                     <td>{item.metadata.birthday}</td>
                     <td>{item.metadata.class}</td>
                     <td>1-20-2021</td>
+                    <td>1-20-2021</td>
+                    <td>1-20-2021</td>
                     <td>
                       <div className="table__option">
                         <div className="table__option__btn">
@@ -51,19 +51,10 @@ const Resident = () => {
                         </div>
                         <ul className="table__option__list">
                           <li>
-                            <button onClick={handleEditChildModal}>
-                              Edit Child
-                            </button>
+                            <button>Edit Donation</button>
                           </li>
                           <li>
-                            <button onClick={handleViewDonorModal}>
-                              View Donor
-                            </button>
-                          </li>
-                          <li>
-                            <button onClick={handleDeleteChildModal}>
-                              Delete Child?
-                            </button>
+                            <button onClick={handleIsActive}>Active</button>
                           </li>
                         </ul>
                       </div>
@@ -87,23 +78,9 @@ const Resident = () => {
           </tbody>
         )}
       </table>
-
-      <ViewDonorModal
-        isViewDonor={isViewDonor}
-        setIsViewDonor={setIsViewDonor}
-      />
-
-      <EditChildModal
-        isEditChild={isEditChild}
-        setIsEditChild={setIsEditChild}
-      />
-
-      <DeleteChildModal
-        isDeleteChild={isDeleteChild}
-        setIsDeleteChild={setIsDeleteChild}
-      />
+      <Active isActive={isActive} setIsActive={setIsActive} />
     </>
   );
 };
 
-export default Resident;
+export default DonationDesignationArchive;

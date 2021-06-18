@@ -1,12 +1,18 @@
 $n: 8; // segments count
 $speed: 1000ms;
 $size: 40px;
-.preloader {
+
+.preload {
+  position: fixed;
   width: 100%;
-  min-height: 50vh;
+  height: 100vh;
+  top: 0;
+  left: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 99999;
 }
 .loader {
   animation: loader $speed step-end infinite;

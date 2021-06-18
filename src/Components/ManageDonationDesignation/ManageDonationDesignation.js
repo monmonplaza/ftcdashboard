@@ -1,15 +1,12 @@
 import React from "react";
-import ActiveUser from "./ActiveUser";
-import InactiveUser from "./InactiveUser";
-import AddUser from "./Modal/AddUser";
+import DonationDesignationActive from "./DonationDesignationActive";
+import DonationDesignationArchive from "./DonationDesignationArchive";
 
-const ManageUsers = ({ title }) => {
-  const [isUserActive, setIsUserActive] = React.useState(true);
-  const [isUserInactive, setIsUserInactive] = React.useState(false);
-
-  const [isAddUser, setIsAddUser] = React.useState(false);
-
-  const handleAddUser = () => setIsAddUser(!isAddUser);
+const ManageDonationDesignation = ({ title }) => {
+  const [isDonationDesignationActive, setIsDonationDesignationActive] =
+    React.useState(true);
+  const [isDonationDesignationArchive, setIsDonationDesignationArchive] =
+    React.useState(false);
 
   return (
     <>
@@ -22,13 +19,13 @@ const ManageUsers = ({ title }) => {
                 <li className="table__nav__listitem">
                   <button
                     className={
-                      isUserActive
+                      isDonationDesignationActive
                         ? "table__nav__btn active"
                         : "table__nav__btn"
                     }
                     onClick={() => {
-                      setIsUserActive(true);
-                      setIsUserInactive(false);
+                      setIsDonationDesignationActive(true);
+                      setIsDonationDesignationArchive(false);
                     }}
                   >
                     Active
@@ -37,38 +34,34 @@ const ManageUsers = ({ title }) => {
                 <li>
                   <button
                     className={
-                      isUserInactive
+                      isDonationDesignationArchive
                         ? "table__nav__btn active"
                         : "table__nav__btn"
                     }
                     onClick={() => {
-                      setIsUserActive(false);
-                      setIsUserInactive(true);
+                      setIsDonationDesignationActive(false);
+                      setIsDonationDesignationArchive(true);
                     }}
                   >
-                    Inactive
+                    Archive
                   </button>
                 </li>
               </ul>
-              <button className="action__btn" onClick={handleAddUser}>
-                +Add New User
-              </button>
             </div>
           </div>
 
           <div className="table__content active">
             <div className="table__content__item">
               <div className="table__content__responsive">
-                {isUserActive && <ActiveUser />}
-                {isUserInactive && <InactiveUser />}
+                {isDonationDesignationActive && <DonationDesignationActive />}
+                {isDonationDesignationArchive && <DonationDesignationArchive />}
               </div>
             </div>
           </div>
         </div>
-        <AddUser isAddUser={isAddUser} setIsAddUser={setIsAddUser} />
       </main>
     </>
   );
 };
 
-export default ManageUsers;
+export default ManageDonationDesignation;

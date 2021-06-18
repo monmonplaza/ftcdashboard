@@ -33,7 +33,7 @@ export const MenuData = [
     title: "Donation Designation",
     description:
       "Manage donation projects for general donation (one-time giving).",
-    path: "/",
+    path: "/donation-designation",
     linkName: "Manage Designations",
   },
   {
@@ -41,7 +41,7 @@ export const MenuData = [
     icon: " fal fa-money-check-edit-alt",
     title: "Manual Donations",
     description: "Manage list of manual donation by cash or cheque.",
-    path: "/",
+    path: "/manual-donations",
     linkName: "Manage Manual Donations",
   },
 ];

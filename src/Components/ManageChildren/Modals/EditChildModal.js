@@ -1,13 +1,13 @@
 import React from "react";
-import { BsPersonPlusFill } from "react-icons/bs";
-const AddChildModal = ({ isAddChild, setIsAddChild }) => {
+import { FaUserEdit } from "react-icons/fa";
+const EditChildModal = ({ isEditChild, setIsEditChild }) => {
   return (
-    <div className={isAddChild ? "modal show" : "modal"}>
+    <div className={isEditChild ? "modal show" : "modal"}>
       <div className="modal__box">
         <form className="modal__form">
           <div className="modal__box__header">
-            <BsPersonPlusFill />
-            <h2>Add New Child</h2>
+            <FaUserEdit />
+            <h2>Edit Child</h2>
           </div>
           <div className="modal__box__body">
             <div className="form-group add__photo">
@@ -67,7 +67,7 @@ const AddChildModal = ({ isAddChild, setIsAddChild }) => {
                   type="reset"
                   className="btn__cancel"
                   onClick={() => {
-                    setIsAddChild(false);
+                    setIsEditChild(false);
                   }}
                 >
                   Cancel
@@ -86,4 +86,4 @@ const AddChildModal = ({ isAddChild, setIsAddChild }) => {
   );
 };
 
-export default AddChildModal;
+export default EditChildModal;

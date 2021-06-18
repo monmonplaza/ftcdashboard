@@ -1,17 +1,23 @@
 import React from "react";
+import EditProfile from "../Modal/EditProfile";
+import EditCard from "../Modal/EditCard";
+import AddCard from "../Modal/AddCard";
+const Details = () => {
+  const [isEditCard, setIsEditCard] = React.useState(false);
+  const [isAddCard, setIsAddCard] = React.useState(false);
+  const [isEditProfile, setIsEditProfile] = React.useState(false);
 
-const Details = ({ title }) => {
-  const [isDetail, setIsDetail] = React.useState(true);
-  const [isSponsorship, setIsSponsorship] = React.useState(false);
-  const [isCancelSponsorship, setIsCancelSponsorship] = React.useState(false);
-  const [isManual, setIsManual] = React.useState(false);
+  const handleEditProfile = () => setIsEditProfile(!isEditProfile);
+  const handleEditCard = () => setIsEditCard(!isEditCard);
+  const handleAddCard = () => setIsAddCard(!isAddCard);
+
   return (
     <>
       <div className="donor">
         <div className="donor__block">
           <div className="donor__block__header">
             <h2>Profile Info</h2>
-            <button>Edit</button>
+            <button onClick={handleEditProfile}>Edit</button>
           </div>
           <div className="donor__block__body">
             <div className="info__block">
@@ -66,26 +72,60 @@ const Details = ({ title }) => {
         <div className="donor__block">
           <div className="donor__block__header">
             <h2>Card Info</h2>
-            <button>Edit</button>
+            <button onClick={handleEditCard}>Edit</button>
           </div>
 
           <div className="donor__block__body">
             <div className="creditcard__wrapper">
+              <button className="addCardInfo" onClick={handleAddCard}>
+                +Add Card Info
+              </button>
+              <img
+                className="card__chip"
+                src="../../images/icon_chip.png"
+                alt="CC Icons"
+              />
               <div className="creditcard__wrapper__name">
-                <h3>Ramon PLaza</h3>
-                <h3>XXXX XXXX XXXX 1234</h3>
+                <h3 className="cardname">-- -- -- -- </h3>
+                <h3 className="cardnumber">XXXX XXXX XXXX XXXX</h3>
+              </div>
+              <div className="creditcard__wrapper__validity">
+                <div className="valid">
+                  <h4>Valid Thru</h4>
+                  <p>-/--/--</p>
+                </div>
+                <img src="../../images/icon_cards.png" alt="CC Cards" />
+              </div>
+            </div>
+
+            <div className="creditcard__wrapper">
+              <img
+                className="card__chip"
+                src="../../images/icon_chip.png"
+                alt="CC Chip"
+              />
+              <div className="creditcard__wrapper__name">
+                <h3 className="cardname">Ramon Plaza</h3>
+                <h3 className="cardnumber">XXXX XXXX XXXX 1234</h3>
               </div>
               <div className="creditcard__wrapper__validity">
                 <div className="valid">
                   <h4>Valid Thru</h4>
                   <p>1/20/21</p>
                 </div>
-                <img src={`${process.env.PUBLIC_URL}/images/icon_cards.png`} />
+                <img src="../../images/icon_cards.png" alt="CC Cards" />
               </div>
             </div>
           </div>
         </div>
       </div>
+      <EditProfile
+        isEditProfile={isEditProfile}
+        setIsEditProfile={setIsEditProfile}
+      />
+
+      <EditCard isEditCard={isEditCard} setIsEditCard={setIsEditCard} />
+      <AddCard isAddCard={isAddCard} setIsAddCard={setIsAddCard} />
     </>
   );
 };

@@ -6,6 +6,8 @@ import UsersList from "./Pages/UsersList.js";
 import DonorsList from "./Pages/DonorsList.js";
 import DonorDetails from "./Pages/DonorDetails.js";
 import Overview from "./Pages/Overview";
+import ManualDonations from "./Pages/ManualDonations";
+import DonationDesignation from "./Pages/DonationDesignation";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/userslist" component={UsersList} />
           <Route path="/donorslist" component={DonorsList} />
           <Route path="/donor-details" component={DonorDetails} />
+          <Route path="/manual-donations" component={ManualDonations} />
+          <Route path="/donation-designation" component={DonationDesignation} />
         </Switch>
       </Router>
     </>

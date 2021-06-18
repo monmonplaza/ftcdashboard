@@ -16,3 +16,26 @@
     color: darken($color, $level);
   }
 }
+
+@mixin custom_scrollbar($width: 8px, $height: 8px) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $height;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $blue-1;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: darken($blue-1, 20%);
+    cursor: pointer;
+  }
+}

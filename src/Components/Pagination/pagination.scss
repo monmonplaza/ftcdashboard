@@ -1,0 +1,31 @@
+.pagination {
+  padding: 1rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid $gray-1;
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__nav {
+    justify-self: flex-end;
+    ul {
+      display: flex;
+      li {
+        margin: 0 0.5rem;
+      }
+
+      button {
+        padding: 1rem;
+        background-color: $blue;
+        color: $light;
+        border-radius: 0.5rem;
+      }
+
+      button:disabled {
+        cursor: not-allowed;
+        background-color: rgba($blue, 0.6);
+      }
+    }
+  }
+}

@@ -1,10 +1,12 @@
 import React from "react";
-import ActiveDonor from "./ActiveDonors";
-import InactiveDonor from "./InactiveDonors";
+import ManualDonationActive from "./ManualDonationActive";
+import ManualDonationArchive from "./ManualDonationArchive";
 
-const ManageDonors = ({ title }) => {
-  const [isDonorActive, setIsDonorActive] = React.useState(true);
-  const [isDonorInactive, setIsDonorInactive] = React.useState(false);
+const ManageManualDonations = ({ title }) => {
+  const [isManualDonationActive, setIsManualDonationActive] =
+    React.useState(true);
+  const [isManualDonationArchive, setIsManualDonationArchive] =
+    React.useState(false);
 
   return (
     <main>
@@ -16,11 +18,13 @@ const ManageDonors = ({ title }) => {
               <li className="table__nav__listitem">
                 <button
                   className={
-                    isDonorActive ? "table__nav__btn active" : "table__nav__btn"
+                    isManualDonationActive
+                      ? "table__nav__btn active"
+                      : "table__nav__btn"
                   }
                   onClick={() => {
-                    setIsDonorActive(true);
-                    setIsDonorInactive(false);
+                    setIsManualDonationActive(true);
+                    setIsManualDonationArchive(false);
                   }}
                 >
                   Active
@@ -29,28 +33,27 @@ const ManageDonors = ({ title }) => {
               <li>
                 <button
                   className={
-                    isDonorInactive
+                    isManualDonationArchive
                       ? "table__nav__btn active"
                       : "table__nav__btn"
                   }
                   onClick={() => {
-                    setIsDonorActive(false);
-                    setIsDonorInactive(true);
+                    setIsManualDonationActive(false);
+                    setIsManualDonationArchive(true);
                   }}
                 >
-                  Inactive
+                  Archive
                 </button>
               </li>
             </ul>
-            <button className="action__btn">+Add New User</button>
           </div>
         </div>
 
         <div className="table__content active">
           <div className="table__content__item">
             <div className="table__content__responsive">
-              {isDonorActive && <ActiveDonor />}
-              {isDonorInactive && <InactiveDonor />}
+              {isManualDonationActive && <ManualDonationActive />}
+              {isManualDonationArchive && <ManualDonationArchive />}
             </div>
           </div>
         </div>
@@ -59,4 +62,4 @@ const ManageDonors = ({ title }) => {
   );
 };
 
-export default ManageDonors;
+export default ManageManualDonations;

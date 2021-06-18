@@ -2,21 +2,21 @@ import React from "react";
 import NonResident from "./NonResident";
 import Resident from "./Resident";
 import AddChildModal from "./Modals/AddChildModal";
+import Pagination from "../Pagination/Pagination";
 
 const ManageChildrenMain = ({ title }) => {
   const [isResident, setIsResident] = React.useState(true);
   const [isNonResident, setIsNonResident] = React.useState(false);
-  const [addChild, setAddChild] = React.useState(false);
-  const [isAction, setIsAction] = React.useState(false);
+
+  const [isAddChild, setIsAddChild] = React.useState(false);
 
   const handleNonResident = () => {
-    console.log("non-resident");
     setIsResident(false);
     setIsNonResident(true);
   };
 
-  const handleAddModal = () => {
-    setAddChild(true);
+  const handleAddChildModal = () => {
+    setIsAddChild(true);
   };
 
   return (
@@ -53,7 +53,7 @@ const ManageChildrenMain = ({ title }) => {
                   </button>
                 </li>
               </ul>
-              <button className="action__btn" onClick={handleAddModal}>
+              <button className="action__btn" onClick={handleAddChildModal}>
                 +Add New Child
               </button>
             </div>
@@ -63,16 +63,15 @@ const ManageChildrenMain = ({ title }) => {
             <div className="table__content__item">
               <div className="table__content__responsive">
                 {isResident && <Resident />}
-                {isNonResident && (
-                  <NonResident action={{ isAction, setIsAction }} />
-                )}
+                {isNonResident && <NonResident />}
               </div>
             </div>
           </div>
+          <Pagination />
         </div>
       </main>
 
-      <AddChildModal addChild={addChild} />
+      <AddChildModal isAddChild={isAddChild} setIsAddChild={setIsAddChild} />
     </>
   );
 };

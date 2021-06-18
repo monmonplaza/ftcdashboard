@@ -1,29 +1,33 @@
 import React from "react";
-import { BsPersonPlusFill } from "react-icons/bs";
-const DeleteChildModal = ({ addChild }) => {
+import { BsPersonDashFill } from "react-icons/bs";
+const DeleteChildModal = ({ isDeleteChild, setIsDeleteChild }) => {
   return (
-    <div className={addChild ? "modal show" : "modal"}>
+    <div className={isDeleteChild ? "modal show" : "modal"}>
       <div className="modal__box">
-        <form action="" className="modal__form">
+        <form className="modal__form">
           <div className="modal__box__header">
-            <BsPersonPlusFill />
-            <h2>Delete Child?</h2>
+            <BsPersonDashFill />
+            <h2>Delete Child</h2>
           </div>
           <div className="modal__box__body">
             <div className="modal__form__group">
-              <h3>Are you sure you want to remove this child</h3>
+              <p>Are you sure you want to remove this child?</p>
             </div>
           </div>
           <div className="modal__box__footer">
             <ul>
               <li>
-                <button className="btn__cancel" onClick={() => !addChild}>
+                <button
+                  type="reset"
+                  className="btn__cancel"
+                  onClick={() => setIsDeleteChild(false)}
+                >
                   Cancel
                 </button>
               </li>
               <li>
-                <button className="btn__process">
-                  Confirm <i className="fa fa-spin"></i>
+                <button className="btn__alert">
+                  Confirm <i className="fa fa-spinner fa-spin"></i>
                 </button>
               </li>
             </ul>

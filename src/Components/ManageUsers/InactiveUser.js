@@ -6,7 +6,7 @@ const InactiveUser = ({ action }) => {
   const { list, loading } = useFetchData(
     "https://demo.frontlinebusiness.com.ph/dev/ftc2021/ftc/rest/admin/read-users.php"
   );
-  const [countData, setCountData] = React.useState(0);
+  // const [countData, setCountData] = React.useState(0);
 
   return (
     <table>

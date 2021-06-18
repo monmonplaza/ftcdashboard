@@ -2,13 +2,15 @@ $blue: hsl(202, 61%, 53%);
 $blue-1: hsl(202, 61%, 40%);
 
 $orange: hsl(32, 97%, 57%);
+$orange-1: hsl(32, 97%, 50%);
 
-$green: hsl(123, 84%, 48%);
+$green: hsl(123, 89%, 30%);
 
 $dark: hsl(0, 0%, 20%);
 $dark-1: hsl(0, 0%, 30%);
 
 $red: hsl(0, 83%, 50%);
+$red-1: hsl(0, 83%, 40%);
 
 $gray: hsl(0, 0%, 40%);
 $gray-1: hsl(0, 0%, 70%);
@@ -16,3 +18,5 @@ $gray-1: hsl(0, 0%, 70%);
 $light: hsl(0, 0%, 100%);
 $light-1: hsl(0, 0%, 95%);
 $light-2: hsl(0, 0%, 80%);
+
+$sm-break: 520px;

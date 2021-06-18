@@ -1,5 +1,9 @@
 import React from "react";
 import Profile from "./Profile";
+import Sponsorship from "./Sponsorship";
+import CancelledSponsor from "./CancelledSponsor";
+import ManualDonation from "./ManualDonation";
+
 const Details = ({ title }) => {
   const [isDetail, setIsDetail] = React.useState(true);
   const [isSponsorship, setIsSponsorship] = React.useState(false);
@@ -83,12 +87,13 @@ const Details = ({ title }) => {
         <div className="table__content active">
           <div className="table__content__item">
             <div className="table__content__responsive">
-              {/* {isDonorActive && <ActiveDonor />}
-              {isDonorInactive && <InactiveDonor />} */}
+              {isDetail && <Profile />}
+              {isSponsorship && <Sponsorship />}
+              {isCancelSponsorship && <CancelledSponsor />}
+              {isManual && <ManualDonation />}
             </div>
           </div>
         </div>
-        <Profile />
       </div>
     </main>
   );

@@ -33,7 +33,10 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 60%;
+  @include media_query($sm-break) {
+    font-size: 50%;
+  }
 }
 
 body {
@@ -53,6 +56,13 @@ button {
 .main__grid {
   display: grid;
   grid-template-columns: 23rem 1fr;
+  @include media_query($sm-break) {
+    grid-template-columns: 0rem 100%;
+  }
+}
+
+.main__grid.open {
+  grid-template-columns: 23rem 1fr;
 }
 
 .main__wrapper {
@@ -61,4 +71,8 @@ button {
   h2 {
     margin-bottom: 3rem;
   }
+}
+
+.no--margin {
+  margin: 0rem !important;
 }

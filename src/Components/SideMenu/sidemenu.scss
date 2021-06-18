@@ -1,4 +1,5 @@
 .sidebar {
+  overflow: hidden;
   &__wrapper {
     margin-top: 3rem;
     padding: 0rem 0 6rem 2rem;
@@ -28,4 +29,8 @@
       }
     }
   }
+}
+
+.sidebar__link.active {
+  color:red
 }

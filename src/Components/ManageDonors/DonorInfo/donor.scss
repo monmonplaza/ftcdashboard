@@ -38,3 +38,50 @@
     }
   }
 }
+
+.creditcard__wrapper {
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid $light-2;
+  min-height: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  .card__chip {
+    position: absolute;
+    width: 58px;
+    height: 43px;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .addCardInfo {
+    position: absolute;
+    top: 3rem;
+    color: $blue;
+    font-weight: bold;
+  }
+  &__name {
+    margin-top: 8rem;
+    h3 {
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .cardname {
+      letter-spacing: 2px;
+    }
+    .cardnumber {
+      font-size: 3rem;
+      line-height: 1.2rem;
+    }
+  }
+  &__validity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h4 {
+      font-size: 1.2rem;
+    }
+  }
+}
