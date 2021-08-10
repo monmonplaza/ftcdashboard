@@ -64,7 +64,10 @@
 
   &__responsive {
     overflow-x: auto;
-    min-height: 85vh;
+    min-height: 50vh;
+    @include media_query($sm-break) {
+      min-height: 80vh;
+    }
   }
 }
 

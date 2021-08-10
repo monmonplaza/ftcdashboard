@@ -1,6 +1,7 @@
 import React from "react";
 import ActiveDonor from "./ActiveDonors";
 import InactiveDonor from "./InactiveDonors";
+import Pagination from "../Pagination/Pagination";
 
 const ManageDonors = ({ title }) => {
   const [isDonorActive, setIsDonorActive] = React.useState(true);
@@ -54,6 +55,7 @@ const ManageDonors = ({ title }) => {
             </div>
           </div>
         </div>
+        <Pagination />
       </div>
     </main>
   );

@@ -1,0 +1,23 @@
+.mobile {
+  display: none;
+  position: flex;
+  @include media_query($sm-break) {
+    display: block;
+  }
+
+  background-color: $blue;
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    li {
+      border-left: 1px solid rgba($blue, 0.2);
+      padding: 1rem;
+      a {
+        font-size: 2rem;
+        padding: 2rem;
+        color: $light;
+      }
+    }
+  }
+}

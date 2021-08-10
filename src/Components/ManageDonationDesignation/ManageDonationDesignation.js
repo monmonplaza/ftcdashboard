@@ -1,6 +1,7 @@
 import React from "react";
 import DonationDesignationActive from "./DonationDesignationActive";
 import DonationDesignationArchive from "./DonationDesignationArchive";
+import Pagination from "../Pagination/Pagination";
 
 const ManageDonationDesignation = ({ title }) => {
   const [isDonationDesignationActive, setIsDonationDesignationActive] =
@@ -58,6 +59,7 @@ const ManageDonationDesignation = ({ title }) => {
               </div>
             </div>
           </div>
+          <Pagination />
         </div>
       </main>
     </>

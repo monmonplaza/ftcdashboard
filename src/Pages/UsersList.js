@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../Components/Header/Header";
 import ManageUsers from "../Components/ManageUsers/ManageUsers";
 import SideMenu from "../Components/SideMenu/SideMenu";
-
+import MobileMenu from "../Components/MobileMenu/MobileMenu";
 const index = () => {
   return (
     <>
@@ -11,6 +11,7 @@ const index = () => {
         <SideMenu />
         <ManageUsers title="User List" />
       </section>
+      <MobileMenu />
     </>
   );
 };
